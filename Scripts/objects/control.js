@@ -4,7 +4,12 @@ var objects;
     // CONTROL CLASS ++++++++++++++++++++++++++++++++++++++++++
     var Control = (function () {
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++
-        function Control() {
+        function Control(cubeFiveRotation, cubeFourRotation, cubeThreeRotation, cubeTwoRotation, cubeOneRotation) {
+            this.cubeFiveRotation = cubeFiveRotation;
+            this.cubeFourRotation = cubeFourRotation;
+            this.cubeThreeRotation = cubeThreeRotation;
+            this.cubeTwoRotation = cubeTwoRotation;
+            this.cubeOneRotation = cubeOneRotation;
         }
         return Control;
     })();

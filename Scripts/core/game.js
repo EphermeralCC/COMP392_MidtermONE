@@ -121,7 +121,7 @@ var game = (function () {
         console.log("Added Axis Helper Object to the Plane");
         // add controls
         gui = new GUI();
-        control = new Control();
+        control = new Control(0, 0, 0, 0, 0);
         addControl(control);
         // Add framerate stats
         addStatsObject();
@@ -131,6 +131,11 @@ var game = (function () {
     }
     function addControl(controlObject) {
         /* ENTER CODE for the GUI CONTROL HERE */
+        gui.add(controlObject, 'cubeFiveRotation', -0.1, 0.1);
+        gui.add(controlObject, 'cubeFourRotation', -0.1, 0.1);
+        gui.add(controlObject, 'cubeThreeRotation', -0.1, 0.1);
+        gui.add(controlObject, 'cubeTwoRotation', -0.1, 0.1);
+        gui.add(controlObject, 'cubeOneRotation', -0.1, 0.1);
     }
     function addStatsObject() {
         stats = new Stats();
@@ -143,6 +148,12 @@ var game = (function () {
     // Setup main game loop
     function gameLoop() {
         stats.update();
+        //Rotation for the Cubes
+        cubeFive.rotation.y += control.cubeFiveRotation;
+        cubeFour.rotation.y += control.cubeFourRotation;
+        cubeThree.rotation.y += control.cubeThreeRotation;
+        cubeTwo.rotation.y += control.cubeTwoRotation;
+        cubeOne.rotation.y += control.cubeOneRotation;
         // render using requestAnimationFrame
         requestAnimationFrame(gameLoop);
         // render the scene
