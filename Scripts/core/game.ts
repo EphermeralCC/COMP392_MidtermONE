@@ -83,7 +83,8 @@ var game = (() => {
         
         //Add SpotLight to the Scene
         spotLight = new SpotLight(0xffffff);
-        spotLight.position.set(-4, 6, -4);
+        spotLight.position.set(-5.6, 23.1, -5.4);
+        spotLight.rotation.set(0.8, 42.7, -19.5);
         scene.add(spotLight);
         console.log("Added SpotLight to the Scene");
         
@@ -107,6 +108,43 @@ var game = (() => {
         cubeFive.position.setY(1.25);
         scene.add(cubeFive);
         console.log("Added cubeFive to the Scene...");
+        
+        //Add cubeFour to the Scene
+        cubeFourGeometry = new CubeGeometry(2, 2, 2);
+        cubeFourMaterial = new LambertMaterial({ color: 0xFFFFFF });
+        cubeFour = new Mesh(cubeFourGeometry, cubeFourMaterial);
+        cubeFour.position.setY(3.5);
+        scene.add(cubeFour);
+        console.log("Added cubeFour to the Scene...");
+        
+        //Add cubeThree to the Scene
+        cubeThreeGeometry = new CubeGeometry(1.5, 1.5, 1.5);
+        cubeThreeMaterial = new LambertMaterial({ color: 0xFFFFFF });
+        cubeThree = new Mesh(cubeThreeGeometry, cubeThreeMaterial);
+        cubeThree.position.setY(5.25);
+        scene.add(cubeThree);
+        console.log("Added cubeThree to the Scene...");
+        
+        //Add cubeTwo to the Scene
+        cubeTwoGeometry = new CubeGeometry(1, 1, 1);
+        cubeTwoMaterial = new LambertMaterial({ color: 0xFFFFFF });
+        cubeTwo = new Mesh(cubeTwoGeometry, cubeTwoMaterial);
+        cubeTwo.position.setY(6.5);
+        scene.add(cubeTwo);
+        console.log("Added cubeTwo to the Scene...");
+        
+        //Add cubeOne to the Scene
+        cubeOneGeometry = new CubeGeometry(.5, .5, .5);
+        cubeOneMaterial = new LambertMaterial({ color: 0xFFFFFF });
+        cubeOne = new Mesh(cubeOneGeometry, cubeOneMaterial);
+        cubeOne.position.setY(7.25);
+        scene.add(cubeOne);
+        console.log("Added cubeOne to the Scene...");
+        
+        //Add Helper AxisHelper
+        axes = new AxisHelper(30);
+        plane.add(axes);
+        console.log("Added Axis Helper Object to the Plane");
         
  
         // add controls
