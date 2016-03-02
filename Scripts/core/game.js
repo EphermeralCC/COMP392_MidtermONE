@@ -36,12 +36,56 @@ var game = (function () {
     var control;
     var gui;
     var stats;
+    var axes;
+    var ambientLight;
+    var spotLight;
+    var plane;
+    var planeGeometry;
+    var planeMaterial;
+    var cubeFive;
+    var cubeFiveGeometry;
+    var cubeFiveMaterial;
+    var cubeFour;
+    var cubeFourGeometry;
+    var cubeFourMaterial;
+    var cubeThree;
+    var cubeThreeGeometry;
+    var cubeThreeMaterial;
+    var cubeTwo;
+    var cubeTwoGeometry;
+    var cubeTwoMaterial;
+    var cubeOne;
+    var cubeOneGeometry;
+    var cubeOneMaterial;
     function init() {
         // Instantiate a new Scene object
         //scene = new Scene();
         setupRenderer(); // setup the default renderer
         setupCamera(); // setup the camera
         /* ENTER CODE HERE */
+        //Add SpotLight to the Scene
+        spotLight = new SpotLight(0xffffff);
+        spotLight.position.set(-4, 6, -4);
+        scene.add(spotLight);
+        console.log("Added SpotLight to the Scene");
+        //Add AmbientLight to the Scene
+        ambientLight = new AmbientLight(0x404040);
+        scene.add(ambientLight);
+        console.log("Added an Ambient Light to Scene");
+        //Add plane to the Scene
+        planeGeometry = new PlaneGeometry(16, 16);
+        planeMaterial = new LambertMaterial({ color: 0x040404 });
+        plane = new Mesh(planeGeometry, planeMaterial);
+        plane.rotation.x = -0.5 * (Math.PI);
+        scene.add(plane);
+        console.log("Added plane to the Scene...");
+        //Add cubeFive to the Scene
+        cubeFiveGeometry = new CubeGeometry(2.5, 2.5, 2.5);
+        cubeFiveMaterial = new LambertMaterial({ color: 0xFFFFFF });
+        cubeFive = new Mesh(cubeFiveGeometry, cubeFiveMaterial);
+        cubeFive.position.setY(1.25);
+        scene.add(cubeFive);
+        console.log("Added cubeFive to the Scene...");
         // add controls
         gui = new GUI();
         control = new Control();
@@ -95,5 +139,4 @@ var game = (function () {
         scene: scene
     };
 })();
-
 //# sourceMappingURL=game.js.map

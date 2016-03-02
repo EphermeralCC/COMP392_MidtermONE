@@ -41,6 +41,34 @@ var game = (() => {
     var control: Control;
     var gui: GUI;
     var stats: Stats;
+    var axes: AxisHelper;
+    var ambientLight: AmbientLight;
+    var spotLight: SpotLight;
+
+    var plane: Mesh;
+    var planeGeometry: PlaneGeometry;
+    var planeMaterial: LambertMaterial;
+
+    var cubeFive: Mesh;
+    var cubeFiveGeometry: CubeGeometry;
+    var cubeFiveMaterial: LambertMaterial;
+
+    var cubeFour: Mesh;
+    var cubeFourGeometry: CubeGeometry;
+    var cubeFourMaterial: LambertMaterial;
+
+    var cubeThree: Mesh;
+    var cubeThreeGeometry: CubeGeometry;
+    var cubeThreeMaterial: LambertMaterial;
+
+    var cubeTwo: Mesh;
+    var cubeTwoGeometry: CubeGeometry;
+    var cubeTwoMaterial: LambertMaterial;
+
+    var cubeOne: Mesh;
+    var cubeOneGeometry: CubeGeometry;
+    var cubeOneMaterial: LambertMaterial;
+
 
     function init() {
         // Instantiate a new Scene object
@@ -52,6 +80,33 @@ var game = (() => {
 
 
         /* ENTER CODE HERE */
+        
+        //Add SpotLight to the Scene
+        spotLight = new SpotLight(0xffffff);
+        spotLight.position.set(-4, 6, -4);
+        scene.add(spotLight);
+        console.log("Added SpotLight to the Scene");
+        
+        //Add AmbientLight to the Scene
+        ambientLight = new AmbientLight(0x404040);
+        scene.add(ambientLight);
+        console.log("Added an Ambient Light to Scene");
+        
+        //Add plane to the Scene
+        planeGeometry = new PlaneGeometry(16, 16);
+        planeMaterial = new LambertMaterial({ color: 0x040404 });
+        plane = new Mesh(planeGeometry, planeMaterial);
+        plane.rotation.x = -0.5 * (Math.PI);
+        scene.add(plane);
+        console.log("Added plane to the Scene...");
+        
+        //Add cubeFive to the Scene
+        cubeFiveGeometry = new CubeGeometry(2.5, 2.5, 2.5);
+        cubeFiveMaterial = new LambertMaterial({ color: 0xFFFFFF });
+        cubeFive = new Mesh(cubeFiveGeometry, cubeFiveMaterial);
+        cubeFive.position.setY(1.25);
+        scene.add(cubeFive);
+        console.log("Added cubeFive to the Scene...");
         
  
         // add controls
@@ -70,6 +125,9 @@ var game = (() => {
 
     function addControl(controlObject: Control): void {
         /* ENTER CODE for the GUI CONTROL HERE */
+
+
+
     }
 
     function addStatsObject() {
